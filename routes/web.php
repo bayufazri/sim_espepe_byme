@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.master');
 });
+
+Route::prefix('jenispembayaran')->name('jenispembayaran.')->group(function(){
+    Route::get('/','JenisPembayaranController@index')->name('index');
+    Route::get('/create', 'JenisPembayaranController@create')->name('create');
+    Route::post('/store', 'JenisPembayaranController@store')->name('store');
+    Route::get('/edit/{jenispembayaran}', 'JenisPembayaranController@edit')->name('edit');
+    Route::get('/show/{jenispembayaran}', 'JenisPembayaranController@show')->name('show');
+    Route::put('/update/{jenispembayaran}', 'JenisPembayaranController@update')->name('update');
+    Route::delete('/delete/{jenispembayaran}', 'JenisPembayaranController@destroy')->name('destroy');
+});
